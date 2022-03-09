@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Show;
+
 class ShowController extends Controller
 {
     /**
@@ -14,11 +15,12 @@ class ShowController extends Controller
     public function index()
     {
         $shows = Show::all();
-        
-        return view('show.index',[
+
+        return view('show.index', [
             'shows' => $shows,
             'resource' => 'spectacles',
-        ]);    }
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -50,10 +52,19 @@ class ShowController extends Controller
     public function show($id)
     {
         $show = Show::find($id);
-        
-        return view('show.show',[
+
+        //Récupérer les artistes du spectacle et les grouper par type
+        $collaborateurs = [];
+
+        foreach ($show->artistTypes as $at) {
+            $collaborateurs[$at->type->type][] = $at->artist;
+        }
+
+        return view('show.show', [
             'show' => $show,
-        ]);        }
+            'collaborateurs' => $collaborateurs,
+        ]);
+    }
 
     /**
      * Show the form for editing the specified resource.
