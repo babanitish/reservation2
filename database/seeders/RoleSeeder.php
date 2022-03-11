@@ -16,13 +16,15 @@ class RoleSeeder extends Seeder
     public function run()
     {
 
-                //Empty the table first
-                Role::truncate();
+        //Empty the table first
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        Role::truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
         //Define data
         $roles = [
-            ['role'=>'comédien'],
-            ['role'=>'scénographe'],
-            ['role'=>'auteur'],
+            ['role' => 'comédien'],
+            ['role' => 'scénographe'],
+            ['role' => 'auteur'],
         ];
 
         //Insert data in the table

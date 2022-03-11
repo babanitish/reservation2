@@ -13,7 +13,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $role = Role::find();
+        $role = Role::all();
 
         return view('role.index',[
             'role' => $role,
