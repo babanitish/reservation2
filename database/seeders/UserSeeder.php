@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
         //Define data
         $users = [
             [
-                'login' => '2212',
+               
                 'name' => 'epfc',
                 'firstname' => 'Toure',
                 'lastname' => 'Abou',
@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
 
             ],
             [
-                'login' => '1111',
+                
                 'name' => 'ulb',
                 'firstname' => 'karim',
                 'lastname' => 'Benz',
@@ -43,10 +43,10 @@ class UserSeeder extends Seeder
                 'password' => 'karim3',
             ],
             [
-                'login' => '2222',
+               
                 'name' => 'efp',
-                'firstname' => 'william',
-                'lastname' => 'mystere',
+                'firstname' => 'Kylian',
+                'lastname' => 'Mbappe',
                 'langue' => 'espagnol',
                 'email' => 'wili@sull.com',
                 'password' => '2468',
@@ -55,7 +55,6 @@ class UserSeeder extends Seeder
         //Insert data in the table
         foreach ($users as $data) {
             DB::table('users')->insert([
-                'login' => $data['login'],
                 'name' => $data['name'],
                 'firstname' => $data['firstname'],
                 'lastname' => $data['lastname'],

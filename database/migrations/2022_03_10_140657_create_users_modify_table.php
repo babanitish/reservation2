@@ -14,7 +14,6 @@ class CreateUsersModifyTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('login')->lenght(30);
             $table->string('firstname')->lenght(60)->nullable();
             $table->string('lastname')->lenght(60)->nullable();
             $table->string('langue')->lenght(30)->default('fr');

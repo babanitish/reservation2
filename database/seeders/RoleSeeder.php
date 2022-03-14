@@ -22,9 +22,9 @@ class RoleSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
         //Define data
         $roles = [
-            ['role' => 'comédien'],
-            ['role' => 'scénographe'],
-            ['role' => 'auteur'],
+            ['role' => 'admin'],
+            ['role' => 'éditeur'],
+            ['role' => 'responsable'],
         ];
 
         //Insert data in the table

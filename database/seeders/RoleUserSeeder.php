@@ -35,8 +35,13 @@ class RoleUserSeeder extends Seeder
             ],
             [
                 'firstname'=>'karim',
-                'lastname'=>'Benzema',
-                'role'=>'editeur',
+                'lastname'=>'Benz',
+                'role'=>'éditeur',
+            ],
+            [
+                'firstname'=>'kylian',
+                'lastname'=>'Mbappe',
+                'role'=>'responsable',
             ],
         ]; 
         //Prepare the data
