@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\Location;
 use App\Models\Show;
+use App\Models\Category;
 
 class ShowSeeder extends Seeder
 {
@@ -34,6 +35,7 @@ class ShowSeeder extends Seeder
                 'location_slug' => 'espace-delvaux-la-venerie',
                 'bookable' => true,
                 'price' => 8.50,
+                'category_name' => 'cirque'
             ],
             [
                 'slug' => null,
@@ -44,6 +46,7 @@ class ShowSeeder extends Seeder
                 'location_slug' => 'dexia-art-center',
                 'bookable' => true,
                 'price' => 9.00,
+                'category_name' => 'danse'
             ],
             [
                 'slug' => null,
@@ -56,6 +59,7 @@ class ShowSeeder extends Seeder
                 'location_slug' => null,
                 'bookable' => false,
                 'price' => 5.50,
+                'category_name' => 'theatre'
             ],
             [
                 'slug' => null,
@@ -66,6 +70,7 @@ class ShowSeeder extends Seeder
                 'location_slug' => 'la-samaritaine',
                 'bookable' => true,
                 'price' => 10.50,
+                'category_name' => 'cirque'
             ],
         ];
 
@@ -73,10 +78,14 @@ class ShowSeeder extends Seeder
         foreach ($shows as &$data) {
             //Search the location for a given location's slug
             $location = Location::firstWhere('slug', $data['location_slug']);
+            $category = Category::firstWhere('name',$data['category_name']);
             unset($data['location_slug']);
+            unset($data['category_name']);
+
 
             $data['slug'] = Str::slug($data['title'], '-');
             $data['location_id'] = $location->id ?? null;
+            $data['category_id'] = $category->id;
         }
         unset($data);
 

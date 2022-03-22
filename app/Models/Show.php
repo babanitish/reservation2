@@ -22,6 +22,7 @@ class Show extends Model
         'location_id',
         'bookable',
         'price',
+        'category_id',
     ];
 
    /**
@@ -36,7 +37,7 @@ class Show extends Model
      *
      * @var bool
      */
-    public $timestamps = true;
+    public $timestamps = false;
     
     /**
      * Get the main location of the show
@@ -58,5 +59,9 @@ class Show extends Model
     public function artistTypes()
     {
         return $this->belongsToMany(ArtistType::class);
+    }
+    public function categories()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

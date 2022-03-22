@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Agent;
 use Illuminate\Http\Request;
-use App\Models\Representation;
-use Carbon\Carbon;
-class RepresentationController extends Controller
+
+class AgentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,13 +14,12 @@ class RepresentationController extends Controller
      */
     public function index()
     {
-        $representations = Representation::all(); //->paginate(10)
-       // dd($representations->show);
-        return view('representation.index',[
-            'representations' => $representations,
-            'resource' => 'représentations',
-        ]);
+        $agents = Agent::all();
+        return view('agent.index',[
+            'agents' => $agents,
+            'resource' => 'agents',
 
+        ]);
     }
 
     /**
@@ -47,29 +46,26 @@ class RepresentationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Agent  $agent
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Agent $agent)
     {
-        $representation = Representation::find($id);
-        $date = Carbon::parse($representation->when)->format('d/m/Y');
-        $time = Carbon::parse($representation->when)->format('G:i');
-        
-        return view('representation.show',[
-            'representation' => $representation,
-            'date' => $date,
-            'time' => $time,
-        ]);
+        // $agents = Agent::find($agent);
+        // return view('agent.index',[
+        //     'agents' => $agents,
+        //     'resource' => 'agents',
+
+        // ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Agent  $agent
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Agent $agent)
     {
         //
     }
@@ -78,10 +74,10 @@ class RepresentationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Agent  $agent
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Agent $agent)
     {
         //
     }
@@ -89,10 +85,10 @@ class RepresentationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Agent  $agent
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Agent $agent)
     {
         //
     }

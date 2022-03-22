@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
-use App\Models\Representation;
-use Carbon\Carbon;
-class RepresentationController extends Controller
+
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,13 +14,12 @@ class RepresentationController extends Controller
      */
     public function index()
     {
-        $representations = Representation::all(); //->paginate(10)
-       // dd($representations->show);
-        return view('representation.index',[
-            'representations' => $representations,
-            'resource' => 'représentations',
-        ]);
+        $categories = Category::all();
 
+        return view('category.index',[
+            'categories' => $categories,
+            'ressouce' => 'catégories' 
+        ]);
     }
 
     /**
@@ -52,15 +51,7 @@ class RepresentationController extends Controller
      */
     public function show($id)
     {
-        $representation = Representation::find($id);
-        $date = Carbon::parse($representation->when)->format('d/m/Y');
-        $time = Carbon::parse($representation->when)->format('G:i');
-        
-        return view('representation.show',[
-            'representation' => $representation,
-            'date' => $date,
-            'time' => $time,
-        ]);
+        //
     }
 
     /**

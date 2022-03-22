@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Show;
+use App\Models\Category;
 
 class ShowController extends Controller
 {
@@ -12,13 +13,15 @@ class ShowController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $shows = Show::all();
-
+        // $show = Show::where('category_id', $request->id)->get();
+        $categories = Category::all();
         return view('show.index', [
             'shows' => $shows,
             'resource' => 'spectacles',
+            'categories' => $categories,
         ]);
     }
 

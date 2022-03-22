@@ -20,12 +20,16 @@ class DatabaseSeeder extends Seeder
             TypeSeeder::class,
             LocalitySeeder::class,
             LocationSeeder::class,
+            CategorySeeder::class,
             ShowSeeder::class,
             RepresentationSeeder::class,
             ArtistTypeSeeder::class,
             ArtistTypeShowSeeder::class,
             UserSeeder::class,
             RoleUserSeeder::class,
+            RepresentationUserSeeder::class,
+            // AgentSeeder::class,
+           
         ]);
     }
 }

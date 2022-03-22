@@ -9,7 +9,8 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\RepresentationController;
-
+use App\Http\Controllers\AgentController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +28,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/',[HomeCotroller::class,"index"]);
+Route::get('/', [ShowController::class, "index"]);
 
 Route::get('/artist', [ArtistController::class, 'index'])->name('artist_index');
 Route::get('/artist/{id}', [ArtistController::class, 'show'])
@@ -57,3 +58,8 @@ Route::get('/representation', [RepresentationController::class, 'index'])
     ->name('representation_index');
 Route::get('/representation/{id}', [RepresentationController::class, 'show'])
     ->where('id', '[0-9]+')->name('representation_show');
+
+Route::get('/agent', [AgentController::class, 'index'])->name('agent_index');
+
+Route::get('/category', [CategoryController::class, 'index'])->name('category_index');
+Route::get('/category/{id}', [CategoryController::class, 'show'])->name('voir_produit');

@@ -5,23 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Artist extends Model
+class Category extends Model
 {
     use HasFactory;
 
+    
         /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['firstname', 'lastname'];
+    protected $fillable = ['name'];
 
    /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'artists';
+    protected $table = 'categories';
 
    /**
      * Indicates if the model should be timestamped.
@@ -34,13 +35,8 @@ class Artist extends Model
     /**
      * The types that belong to the artist.
      */
-    public function types()
+    public function shows()
     {
-        return $this->belongsToMany('App\Models\Type');
+        return $this->hasMany('App\Models\Show');
     }
-    public function agents()
-    {
-        return $this->hasMany('App\Models\Agent');
-    }
-
 }

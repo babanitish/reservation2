@@ -3,6 +3,7 @@
 @section('title', 'Fiche d\'un spectacle')
 
 @section('content')
+
 <article>
     <h1>{{ $show->title }}</h1>
         
