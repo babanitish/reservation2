@@ -4,7 +4,10 @@
 
 @section('content')
     {{-- @php
-        dd($categories)
-    @endphp --}}
-    
+    dd($categories)
+@endphp <ul> --}}
+        @foreach ($categories as $category)
+        <li>{{$category->name}}</li>
+        @endforeach
+    </ul>
 @endsection

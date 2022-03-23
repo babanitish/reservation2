@@ -8,6 +8,17 @@ use App\Models\Category;
 
 class ShowController extends Controller
 {
+
+public function search(){
+    $searchText = $_GET['search'];
+    $shows = Show::where('title','like','%' .$searchText. '%')->get();
+    $categories = Category::all();
+    //dd($shows);
+    return view('show.search',[
+        'shows' => $shows,
+        'categories' => $categories
+    ]);
+}
     /**
      * Display a listing of the resource.
      *

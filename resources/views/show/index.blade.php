@@ -13,6 +13,9 @@
             @foreach ($shows as $show)
                 <div class="col">
                     <div class="card mb-4 box-shadow">
+                        <div class="card-text">
+                        {{ $show->title }}
+                    </div>
                         <img class="card-img-top" src="{{ asset('images/' . $show->poster_url) }}"
                             alt="{{ $show->title }}" />
                         <div class="card-body">

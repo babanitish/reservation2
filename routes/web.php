@@ -54,6 +54,8 @@ Route::get('/show', [ShowController::class, 'index'])->name('show_index');
 Route::get('/show/{id}', [ShowController::class, 'show'])
     ->where('id', '[0-9]+')->name('show_show');
 
+Route::get('/search', [ShowController::class, 'search']);
+
 Route::get('/representation', [RepresentationController::class, 'index'])
     ->name('representation_index');
 Route::get('/representation/{id}', [RepresentationController::class, 'show'])
@@ -62,4 +64,4 @@ Route::get('/representation/{id}', [RepresentationController::class, 'show'])
 Route::get('/agent', [AgentController::class, 'index'])->name('agent_index');
 
 Route::get('/category', [CategoryController::class, 'index'])->name('category_index');
-Route::get('/category/{id}', [CategoryController::class, 'show'])->name('voir_produit');
+Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category_show');

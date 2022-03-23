@@ -91,9 +91,15 @@
             </header>
         @endif
         @include('front.header')
-        @include('category.index')
+        
         <!-- Page Content -->
         <main>
+            <form action="{{url('/search')}}" type="get">
+            <div class="input-group w-50">
+                <input type="search" name="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <button type="submit" class="btn btn-outline-primary">search</button>
+              </div>
+             </form>
             @yield('content')
         </main>
     </div>

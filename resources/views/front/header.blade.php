@@ -2,14 +2,12 @@
     <nav class="py-2 bg-light border-bottom">
         <div class="container d-flex flex-wrap">
             <ul class="nav me-auto">
-                <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">Home</a>
+                <li class="nav-item"><a href="{{ route('show_index') }}" class="nav-link link-dark px-2 active" aria-current="page">Home</a>
                 </li>
-                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Features</a></li>
                 <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Pricing</a></li>
-                <li class="nav-item"><a href="#" class="nav-link link-dark px-2">FAQs</a></li>
                 <li class="nav-item"><a href="#" class="nav-link link-dark px-2">About</a></li>
             </ul>
-            <ul class="nav">
+            <ul class="d-flex flex-row-reverse">
 
                 @if (Route::has('login'))
                     {{-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> --}}
@@ -19,7 +17,7 @@
                             class="nav-link">Dashboard</a>
                         </li>
 
-                        <li class=class="nav-link link-dark px-2">
+                        <li class="nav-link link-dark px-2">
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <div class="nav-link link-dark px-2">
